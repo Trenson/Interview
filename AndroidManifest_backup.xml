@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.interview"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="4"></uses-sdk>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.interview.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.interview.javaActivity"
+            android:label="@string/main_name" 
+             android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity
+            android:name="com.example.interview.collectActivity"
+            android:label="@string/main_name" 
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity android:name="com.umeng.fb.ConversationActivity"
+         android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity"
+         android:theme="@android:style/Theme.NoTitleBar"/>
+		<meta-data android:value="54829a2afd98c5605c000369" android:name="UMENG_APPKEY"></meta-data>
+		<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
+		<meta-data
+		    android:name="UMENG_MESSAGE_SECRET"
+		    android:value="1d874f2188908b6879b1dba5236b12cd" >
+		</meta-data>
+		
+		<receiver
+    android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+    android:exported="false" >
+</receiver>
+<receiver android:name="com.umeng.message.RegistrationReceiver" >
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+        <data android:scheme="package" />
+    </intent-filter>
+
+     <!--【可选】根据需要添加-->
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+    </intent-filter>
+
+</receiver>
+<receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.RECEIVE" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.COMMAND" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2" />
+    </intent-filter>
+</receiver>
+<service
+    android:name="com.umeng.message.UmengService"
+    android:exported="true"
+    android:process=":umengService_v1" >
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.START" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.COCKROACH" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.PING" />
+    </intent-filter>
+</service>
+<service
+    android:name="org.android.agoo.service.ElectionService"
+    android:exported="true"
+    android:process=":umengService_v1" >
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
+    </intent-filter>
+</service>
+<service android:name="com.umeng.message.UmengIntentService" />
+<!-- V1.3.0添加的service，负责下载通知的资源 -->
+<service android:name="com.umeng.message.UmengDownloadResourceService" />
+
+<service
+    android:name="com.umeng.update.net.DownloadingService"
+    android:process=":DownloadingService" >
+</service>
+<activity 
+    android:name="com.umeng.update.UpdateDialogActivity"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+</activity>
+    </application>
+
+</manifest>

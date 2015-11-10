@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#efdfcf"
+>
+ <RelativeLayout 
+  			android:layout_width="fill_parent"
+  			android:layout_height="40dip" 
+  			android:id="@+id/title2" 
+  			android:gravity="center_vertical" 
+  			android:background="@drawable/s_search_bg"
+  			 >  
+      		<TextView
+      		    android:id="@+id/mimedetail_back"
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:drawableLeft="@drawable/back_seletor"
+        		android:text="返回"
+        		android:layout_centerVertical="true"
+        		 android:textSize="16sp"	       		
+        		android:layout_marginLeft="10dip"	
+				android:textColor="@drawable/text_blue" /> 
+				
+      		<TextView
+      		    android:id="@+id/top1"
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:text="我的收藏"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+        		android:textSize="20sp"      		     		        		
+				android:textColor="#000000" /> 
+
+      		
+      	</RelativeLayout>
+      	<View 
+      		   		android:id="@+id/line"
+                     android:layout_width="fill_parent" 
+                     android:layout_marginTop="40dp"
+                     android:layout_height="1dip"  
+                      android:background="@drawable/line"
+
+                    />
+ <TextView
+        android:id="@+id/textView1"
+        android:layout_marginTop="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:text="" 
+          android:textColor="#000000"
+         />
+    <ScrollView
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView1" 
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/llybuttom" 
+    >
+         <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" 
+        android:textColor="#000000"
+        android:padding="10dp"/>
+</ScrollView>
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:id="@+id/llybuttom"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+        >
+
+               <Button
+                android:id="@+id/btregist1"
+                android:layout_height="45dip"
+                android:layout_width="fill_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="0dp"
+                android:text="删除本题"
+		        android:textColor="#ffffff"
+		        android:textSize="24sp"  
+                android:onClick="clear"
+                android:background="@drawable/show"
+                android:layout_weight="1"
+            ></Button>
+            <Button
+                android:id="@+id/btregist2"
+                android:layout_height="45dip"
+                android:layout_width="fill_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="0dp"
+                android:text="显示答案"
+		        android:textColor="#ffffff"
+		        android:textSize="24sp"  
+                android:onClick="show"
+                android:background="@drawable/collect"
+                android:layout_weight="1"
+            ></Button>
+    </LinearLayout>    
+</RelativeLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.1" package="com.example.interview">
+
+    <uses-sdk android:minSdkVersion="4"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+	<!-- ###################声明SDK使用的相关权限###################### -->
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+    <!-- 获取mac地址作为用户的备用唯一标识 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />     
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />      
+    <!-- 缓存资源优先存入SDcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- QQ、QQ空间所需权限 -->
+<uses-permission android:name="android.permission.GET_TASKS" />
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="com.example.interview.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/main_name" android:name="com.example.interview.javaActivity" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity android:label="@string/main_name" android:name="com.example.interview.collectActivity" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity android:name="com.umeng.fb.ConversationActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+		<meta-data android:name="UMENG_APPKEY" android:value="54829a2afd98c5605c000369"/>
+		<meta-data android:name="UMENG_CHANNEL" android:value="Wandoujia"/>
+		<meta-data android:name="UMENG_MESSAGE_SECRET" android:value="1d874f2188908b6879b1dba5236b12cd">
+		</meta-data>
+		<!-- ###################注册SDK使用的Activity###################### -->
+        <!--分享编辑页-->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID-->
+                <data android:scheme="tencent100424468" /> 
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait">
+        </activity>
+		<receiver android:exported="false" android:name="com.umeng.message.NotificationProxyBroadcastReceiver">
+</receiver>
+<receiver android:name="com.umeng.message.RegistrationReceiver">
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+        <data android:scheme="package"/>
+    </intent-filter>
+
+     <!--【可选】根据需要添加-->
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+    </intent-filter>
+
+</receiver>
+<receiver android:name="com.umeng.message.UmengBroadcastReceiver">
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+    </intent-filter>
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.COMMAND"/>
+    </intent-filter>
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2"/>
+    </intent-filter>
+</receiver>
+<service android:exported="true" android:name="com.umeng.message.UmengService" android:process=":umengService_v1">
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.START"/>
+    </intent-filter>
+    <intent-filter>
+        <action android:name="com.example.interview.intent.action.COCKROACH"/>
+    </intent-filter>
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.PING"/>
+    </intent-filter>
+</service>
+<service android:exported="true" android:name="org.android.agoo.service.ElectionService" android:process=":umengService_v1">
+    <intent-filter>
+        <action android:name="org.agoo.android.intent.action.ELECTION_V2"/>
+    </intent-filter>
+</service>
+<service android:name="com.umeng.message.UmengIntentService"/>
+<!-- V1.3.0添加的service，负责下载通知的资源 -->
+<service android:name="com.umeng.message.UmengDownloadResourceService"/>
+
+<service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService">
+</service>
+<activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+</activity>
+    <activity android:configChanges="orientation|keyboard" android:launchMode="singleTask" android:name="com.umeng.socialize.view.ShareActivity" android:noHistory="true" android:theme="@style/Theme.UMDialog" android:windowSoftInputMode="stateVisible|adjustResize"/>
+<activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name=".wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+</application>
+
+</manifest>

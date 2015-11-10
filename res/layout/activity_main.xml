@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:paddingLeft="20dp"
+    android:background="@drawable/rootblock_default_bg"
+    >
+
+
+
+    <LinearLayout 
+     	android:layout_width="wrap_content"
+     	android:layout_height="fill_parent"
+     	android:orientation="vertical"
+     	android:layout_weight="1">
+     	<LinearLayout 
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="wrap_content"
+     	    android:orientation="horizontal">
+     	        <Button 
+     	            android:id="@+id/button1"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:background="#FF6073"
+     	    	android:text="JAVA开发" 
+     	    	android:onClick="clickHandler1"/>
+     	        <Button  
+     	            android:id="@+id/button2"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:layout_marginLeft="5dp"
+	     	        android:background="#3D98FF"
+	     	    	android:text="C/C++开发" 
+	     	    	android:onClick="clickHandler2"/>
+     	</LinearLayout>
+        
+     	<LinearLayout 
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="wrap_content"
+     	    android:layout_marginTop="5dp"
+     	    android:orientation="horizontal">
+     	   <Button   
+     	       		android:id="@+id/button3"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:background="#FF7A81"
+     	    android:text="算法与逻辑" 
+     	    android:onClick="clickHandler5"/>
+     	     <Button   
+     	         	android:id="@+id/button4"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:layout_marginLeft="5dp"
+	     	        android:background="#01BCE4"
+     	    android:text="DS与OS"
+     	    android:onClick="clickHandler6" />
+     	</LinearLayout>
+     	
+     	 	<LinearLayout 
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="wrap_content"
+     	    android:layout_marginTop="5dp"
+     	    android:orientation="horizontal">
+	     	         <Button   
+     	         	android:id="@+id/button5"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:layout_marginLeft="0dp"
+	     	        android:background="#62C500"
+     	    android:text="前端开发" 
+     	    android:onClick="clickHandler3"/>
+
+	     	        <Button   
+     	         	android:id="@+id/button6"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:layout_marginLeft="5dp"
+	     	        android:background="#FF8A44"
+     	    android:text="通信网络" 
+     	    android:onClick="clickHandler4"/>
+     	</LinearLayout>
+     	
+     	 	<LinearLayout 
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="wrap_content"
+     	    android:layout_marginTop="5dp"
+     	    android:orientation="horizontal">
+     	 <Button 
+     	     		android:id="@+id/button5"
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:background="#953399ff"
+	     android:text="我的收藏" 
+	     android:onClick="clickHandler7"/>
+     	 <Button 
+     	     		android:id="@+id/button6" 
+	     	        android:layout_width="108dp"
+	     	        android:layout_height="108dp"
+	     	        android:layout_marginLeft="5dp"
+	     	        android:background="#996600ff"
+     	  android:text="敬请期待" />
+     	</LinearLayout> 	
+     	    
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+       	<RelativeLayout 
+       	    android:layout_width="fill_parent"
+       	    android:layout_height="fill_parent"
+       	    >
+     	    <LinearLayout
+     	    	android:layout_width="wrap_content"
+       	    	android:layout_height="wrap_content"
+       	    	android:orientation="vertical"
+     	        android:layout_alignParentBottom="true">
+		       	<Button 
+		       	    android:id="@+id/download_btn1" 
+		       	 	android:layout_width="36dp"
+		       		android:layout_height="36dp"
+		       		android:onClick="download"
+		       		android:background="@drawable/rootblock_icon_download_bg"/>
+		       <!-- <Button 
+		       	    android:id="@+id/download_btn2" 
+		       	 	android:layout_width="36dp"
+		       		android:layout_height="36dp"
+		       		android:layout_marginTop="20dp"
+		       		android:onClick=""
+		       		android:background="@drawable/rootblock_icon_set_bg"/> -->	
+		       	<Button
+		       	    android:id="@+id/download_btn"
+		       	 	android:layout_width="36dp"
+		       		android:layout_height="36dp"
+		       		android:layout_marginTop="20dp"
+		       		android:onClick="feedback"
+		       		android:background="@drawable/rootblock_icon_add_bg"/>
+       	 	</LinearLayout>
+       	</RelativeLayout> 
+    </LinearLayout>
+</LinearLayout>
