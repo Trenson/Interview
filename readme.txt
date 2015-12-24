@@ -1,7 +1,6 @@
-JAVA--JAVA
-C/C++--Android
-前端开发--C
-通信网络--PHP
+IT Interview
+Include JAVA, C/C++, Algorithm, DS&OS, js, Commnunication & Networks.
+With this app and a smartphone, you can get any offer on Earth. No matter what kind of job you prefer,Java,C++,or JavaScript, this app may promote your ability more than you can image.
+Powered by T&E
 
-CREATE TABLE tbl_java ( No INTEGER PRIMARY KEY AUTOINCREMENT, question varchar(1000) not null, answer clob not null);
-insert into tbl_java(question,answer) values (
+http://itinterviewhelper.sinaapp.com/
